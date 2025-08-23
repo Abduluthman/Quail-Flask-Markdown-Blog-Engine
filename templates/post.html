@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <article class="card shadow-sm border-0 p-4">
+    <h1 class="mb-3">{{ title }}</h1>
+
+    <div class="mb-3 text-muted d-flex flex-wrap align-items-center gap-2">
+      <span>{{ meta.formatted_date }}</span>
+      <span class="badge bg-secondary">{{ meta.reading_time }}</span>
+      {% if meta.category %}
+      <span class="badge bg-primary">{{ meta.category }}</span>
+      {% endif %}
+    </div>
+
+    {% if meta.cover_image %}
+    <img src="{{ url_for('static', filename='images/' ~ meta.cover_image) }}" alt="Cover image for {{ title }}" class="img-fluid rounded mb-4">
+    {% endif %}
+
+    <div class="post-content">
+      {{ content|safe }}
+    </div>
+
+    {% if tags %}
+    <div class="mt-4">
+      <strong>Tags:</strong>
+      {% for tag in tags %}
+        <a href="{{ url_for('tag', tag=tag) }}" class="badge bg-light text-dark border">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </article>
+
+  {% if related_posts %}
+  <div class="mt-5">
+    <h4>🔗 Related Posts</h4>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
+      {% for post in related_posts %}
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h6 class="card-title mb-2">{{ post.title }}</h6>
+            <div class="text-muted mb-2 d-flex justify-content-between align-items-center flex-wrap gap-2">
+              <small>{{ post.formatted_date }}</small>
+              <span class="badge bg-secondary">{{ post.reading_time }}</span>
+            </div>
+            <a href="{{ url_for('post', post_name=post.name) }}" class="btn btn-outline-primary btn-sm">Read More</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
