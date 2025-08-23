@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+  {% if featured_posts %}
+  <h2 class="mb-4">🌟 Featured Articles</h2>
+  <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+    {% for post in featured_posts %}
+    <div class="col">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <div class="mb-2 text-muted d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <small>{{ post.formatted_date }}</small>
+            <span class="badge bg-secondary">{{ post.reading_time }}</span>
+          </div>
+          <p class="card-text text-truncate" style="max-height: 4.5em;">{{ post.content[:180] }}...</p>
+          <a href="{{ url_for('post', post_name=post.name) }}" class="btn btn-outline-primary btn-sm mt-2">Read More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <h2 class="mb-4">📝 All Posts</h2>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for post in posts %}
+    <div class="col">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <div class="mb-2 text-muted d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <small>{{ post.formatted_date }}</small>
+            <span class="badge bg-secondary">{{ post.reading_time }}</span>
+          </div>
+          <p class="card-text text-truncate" style="max-height: 4.5em;">{{ post.content[:180] }}...</p>
+          <a href="{{ url_for('post', post_name=post.name) }}" class="btn btn-outline-primary btn-sm mt-2">Read More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
