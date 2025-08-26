@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>All Categories</h2>
+  <ul>
+    {% for cat, posts in cat_map.items() %}
+      <li>
+        <a href="{{ url_for('category', category=cat) }}">{{ cat }}</a> ({{ posts|length }})
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
