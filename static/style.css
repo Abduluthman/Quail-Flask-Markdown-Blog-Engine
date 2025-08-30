@@ -1,0 +1,145 @@
+body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #212529;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  a {
+    color: #0d6efd;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  h1, h2, h3, h4 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  p, ul, ol {
+    font-size: 1rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 5px;
+    display: block;
+  }
+  
+  code {
+    background-color: #eee;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+  
+  pre code {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    display: block;
+    overflow-x: auto;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  
+  .card {
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  mark {
+    background-color: #fffa65;
+    padding: 0 3px;
+    border-radius: 3px;
+  }
+  
+  .dark-mode body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  .dark-mode .bg-light,
+  .dark-mode .navbar,
+  .dark-mode .footer,
+  .dark-mode .card-body {
+    background-color: #1e1e1e !important;
+  }
+  
+  .dark-mode .card {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+  }
+  
+  .dark-mode .text-dark {
+    color: #e0e0e0 !important;
+  }
+  
+  .dark-mode a {
+    color: #90caf9;
+  }
+  
+  .dark-mode .badge {
+    background-color: #2d2d2d;
+    color: #ccc;
+  }
+  
+  .dark-mode pre code {
+    background-color: #1f1f1f;
+    color: #f8f8f2;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav .nav-item {
+      margin-bottom: 0.5rem;
+    }
+  
+    form.d-flex {
+      flex-direction: column;
+    }
+  
+    form.d-flex input[type="search"] {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      width: 100%;
+    }
+  
+    .navbar-nav {
+      align-items: stretch;
+    }
+  
+    .card {
+      margin-bottom: 1rem;
+    }
+  
+    .card.border-primary {
+      border-width: 2px;
+    }
+  
+    .badge.bg-secondary {
+      background-color: #6c757d;
+      font-size: 0.75rem;
+      padding: 0.4em 0.6em;
+      border-radius: 0.3rem;
+    }
+  
+    pre code {
+      font-size: 0.85rem;
+    }
+  }
+  
